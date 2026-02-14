@@ -17,14 +17,14 @@ Every method you already know (`format()`, `addMonths()`, `diffForHumans()`, `st
 
 ```php
 // Create a date in Jalali calendar — the most natural way
-$date = MultiCarbon::createJalali(1404, 1, 1); // Nowruz 1404
+$carbon = MultiCarbon::createJalali(1404, 1, 1); // Nowruz 1404
 
-echo $date->format('Y/m/d');                   // "1404/01/01"
-echo $date->format('l j F Y');                  // "جمعه 1 فروردین 1404"
+echo $carbon->format('Y/m/d');                   // "1404/01/01"
+echo $carbon->format('l j F Y');                  // "جمعه 1 فروردین 1404"
 
 // Switch between calendars on the same instance
-echo $date->hijri()->format('Y/m/d');          // "1446/08/21"
-echo $date->gregorian()->format('Y/m/d');      // "2025/03/21"
+echo $carbon->hijri()->format('Y/m/d');          // "1446/08/21"
+echo $carbon->gregorian()->format('Y/m/d');      // "2025/03/21"
 
 // Or start from a Gregorian string — works seamlessly
 echo (new MultiCarbon('2025-03-21'))->jalali()->format('Y/m/d'); // "1404/01/01"
